@@ -491,17 +491,16 @@ body[data-bg-dark="true"] .nav__year {
 /* Bonequinha */
 .bonequinha-wrap {
   position: absolute;
-  left: calc(50% - 40px);
+  left: calc(50% - 80px);
   top: 5vh;
   z-index: 20;
   pointer-events: none;
-  width: 80px;
+  width: 160px;
 }
 
 .bonequinha-wrap img {
-  width: 80px;
+  width: 160px;
   height: auto;
-  transition: filter 0.4s ease;
 }
 
 /* Casos */
@@ -779,12 +778,12 @@ body[data-bg-dark="true"] .nav__year {
   }
 
   .bonequinha-wrap {
-    left: -8px;
-    width: 48px;
+    left: calc(50% - 48px);
+    width: 96px;
   }
 
   .bonequinha-wrap img {
-    width: 48px;
+    width: 96px;
   }
 
   .contato__headline {

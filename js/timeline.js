@@ -86,14 +86,11 @@ gsap.registerPlugin(ScrollTrigger);
     const bg = caseEl.dataset.bg;
     const textColor = caseEl.dataset.text || '#1A1A1A';
     const isDark = isColorDark(bg);
-    const expressions = ['open', 'glasses', 'sleepy', 'closed', 'happy'];
-
     ScrollTrigger.create({
       trigger: caseEl,
       start: 'top 62%',
       onEnter: () => {
         setColors(bg, textColor, isDark);
-        setExpression(expressions[i] || 'open');
         caseEl.classList.add('case--active');
       },
       onLeaveBack: () => {
@@ -103,11 +100,9 @@ gsap.registerPlugin(ScrollTrigger);
           const prevBg = prev.dataset.bg;
           const prevText = prev.dataset.text || '#1A1A1A';
           setColors(prevBg, prevText, isColorDark(prevBg));
-          setExpression(expressions[i - 1] || 'open');
           prev.classList.add('case--active');
         } else {
           resetColors();
-          setExpression('open');
         }
         caseEl.classList.remove('case--active');
       },
@@ -192,24 +187,5 @@ gsap.registerPlugin(ScrollTrigger);
     return (r * 0.299 + g * 0.587 + b * 0.114) < 140;
   }
 
-  function setExpression(state) {
-    if (!bonequinha) return;
-    // IDs do SVG inline: bq-face-open, bq-face-glasses, etc.
-    const faceMap = {
-      open:    'bq-face-open',
-      glasses: 'bq-face-glasses',
-      sleepy:  'bq-face-sleepy',
-      closed:  'bq-face-closed',
-      happy:   'bq-face-happy',
-    };
-    const allIds = Object.values(faceMap);
-    allIds.forEach((id) => {
-      const el = document.getElementById(id);
-      if (el) el.style.display = 'none';
-    });
-    const targetId = faceMap[state] || faceMap.open;
-    const target = document.getElementById(targetId);
-    if (target) target.style.display = 'block';
-  }
 
 })();
