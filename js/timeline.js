@@ -188,11 +188,21 @@ gsap.registerPlugin(ScrollTrigger);
 
   function setExpression(state) {
     if (!bonequinha) return;
-    const allStates = bonequinha.querySelectorAll('.face-state');
-    allStates.forEach((el) => {
-      el.style.display = 'none';
+    // IDs do SVG inline: bq-face-open, bq-face-glasses, etc.
+    const faceMap = {
+      open:    'bq-face-open',
+      glasses: 'bq-face-glasses',
+      sleepy:  'bq-face-sleepy',
+      closed:  'bq-face-closed',
+      happy:   'bq-face-happy',
+    };
+    const allIds = Object.values(faceMap);
+    allIds.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) el.style.display = 'none';
     });
-    const target = bonequinha.querySelector(`.face-state--${state}`);
+    const targetId = faceMap[state] || faceMap.open;
+    const target = document.getElementById(targetId);
     if (target) target.style.display = 'block';
   }
 
