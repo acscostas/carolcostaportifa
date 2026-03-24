@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 90 180" fill="none" id="bonequinha-svg">
+  <!-- ── Corpo ── -->
+  <!-- Pescoço -->
+  <line x1="45" y1="88" x2="45" y2="100" stroke="#1A1A1A" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- Corpo / vestido -->
+  <path d="M28,100 C24,115 26,132 45,134 C64,132 66,115 62,100 Z"
+        stroke="#1A1A1A" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Decote -->
+  <path d="M28,100 L45,110 L62,100" stroke="#1A1A1A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Braço esquerdo -->
+  <path d="M28,108 C18,106 14,118 18,124" stroke="#1A1A1A" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- Braço direito -->
+  <path d="M62,108 C72,106 76,118 72,124" stroke="#1A1A1A" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- Pernas -->
+  <line x1="38" y1="134" x2="32" y2="162" stroke="#1A1A1A" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="52" y1="134" x2="58" y2="162" stroke="#1A1A1A" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- Sapatos vermelhos -->
+  <path d="M28,162 C26,166 32,170 36,166 C38,164 34,160 32,162"
+        fill="#B00909" stroke="#B00909" stroke-width="1" stroke-linecap="round"/>
+  <path d="M62,162 C64,166 58,170 54,166 C52,164 56,160 58,162"
+        fill="#B00909" stroke="#B00909" stroke-width="1" stroke-linecap="round"/>
+
+  <!-- ── Cabeça ── -->
+  <!-- Rosto oval -->
+  <ellipse cx="45" cy="62" rx="24" ry="26" stroke="#1A1A1A" stroke-width="2.5"/>
+
+  <!-- Cabelo cacheado -->
+  <g stroke="#1A1A1A" stroke-linecap="round" fill="none">
+    <!-- Topo -->
+    <path d="M32,42 C28,32 36,24 42,30" stroke-width="2"/>
+    <path d="M38,38 C36,28 44,22 48,30" stroke-width="2"/>
+    <path d="M46,37 C46,26 54,22 56,32" stroke-width="2"/>
+    <path d="M54,40 C56,30 64,30 62,40" stroke-width="2"/>
+    <!-- Lado esquerdo -->
+    <path d="M22,55 C14,50 12,60 18,64" stroke-width="1.8"/>
+    <path d="M21,65 C13,62 12,72 18,74" stroke-width="1.8"/>
+    <!-- Lado direito -->
+    <path d="M68,55 C76,50 78,60 72,64" stroke-width="1.8"/>
+    <path d="M69,65 C77,62 78,72 72,74" stroke-width="1.8"/>
+    <!-- Baixo lateral esquerdo -->
+    <path d="M22,74 C16,76 16,84 22,84" stroke-width="1.8"/>
+    <path d="M68,74 C74,76 74,84 68,84" stroke-width="1.8"/>
+  </g>
+
+  <!-- Brincos vermelhos (franjas) -->
+  <g stroke="#B00909" stroke-linecap="round">
+    <line x1="21" y1="70" x2="18" y2="80" stroke-width="2.5"/>
+    <line x1="18" y1="80" x2="14" y2="90" stroke-width="2"/>
+    <line x1="18" y1="80" x2="16" y2="91" stroke-width="2"/>
+    <line x1="18" y1="80" x2="20" y2="91" stroke-width="2"/>
+    <line x1="69" y1="70" x2="72" y2="80" stroke-width="2.5"/>
+    <line x1="72" y1="80" x2="68" y2="90" stroke-width="2"/>
+    <line x1="72" y1="80" x2="72" y2="91" stroke-width="2"/>
+    <line x1="72" y1="80" x2="76" y2="91" stroke-width="2"/>
+  </g>
+
+  <!-- ── Expressão: estado 1 — olhos abertos (default) ── -->
+  <g class="face-state face-state--open" id="face-open">
+    <ellipse cx="37" cy="62" rx="5" ry="6" stroke="#1A1A1A" stroke-width="2"/>
+    <ellipse cx="53" cy="62" rx="5" ry="6" stroke="#1A1A1A" stroke-width="2"/>
+    <circle cx="37" cy="62" r="2" fill="#1A1A1A"/>
+    <circle cx="53" cy="62" r="2" fill="#1A1A1A"/>
+    <path d="M37,72 C40,75 50,75 53,72" stroke="#1A1A1A" stroke-width="2" stroke-linecap="round"/>
+  </g>
+
+  <!-- ── Expressão: estado 2 — óculos ── -->
+  <g class="face-state face-state--glasses" id="face-glasses" style="display:none">
+    <rect x="29" y="56" width="14" height="12" rx="4" stroke="#1A1A1A" stroke-width="2"/>
+    <rect x="47" y="56" width="14" height="12" rx="4" stroke="#1A1A1A" stroke-width="2"/>
+    <line x1="43" y1="62" x2="47" y2="62" stroke="#1A1A1A" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="29" y1="62" x2="24" y2="60" stroke="#1A1A1A" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="61" y1="62" x2="66" y2="60" stroke="#1A1A1A" stroke-width="1.5" stroke-linecap="round"/>
+    <circle cx="36" cy="62" r="2" fill="#1A1A1A"/>
+    <circle cx="54" cy="62" r="2" fill="#1A1A1A"/>
+    <path d="M37,72 C40,75 50,75 53,72" stroke="#1A1A1A" stroke-width="2" stroke-linecap="round"/>
+  </g>
+
+  <!-- ── Expressão: estado 3 — olhos meio fechados ── -->
+  <g class="face-state face-state--sleepy" id="face-sleepy" style="display:none">
+    <path d="M32,60 C34,56 40,56 42,60" stroke="#1A1A1A" stroke-width="2" stroke-linecap="round"/>
+    <path d="M32,60 C34,63 40,63 42,60" stroke="#1A1A1A" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
+    <path d="M48,60 C50,56 56,56 58,60" stroke="#1A1A1A" stroke-width="2" stroke-linecap="round"/>
+    <path d="M48,60 C50,63 56,63 58,60" stroke="#1A1A1A" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
+    <path d="M37,72 C40,75 50,75 53,72" stroke="#1A1A1A" stroke-width="2" stroke-linecap="round"/>
+  </g>
+
+  <!-- ── Expressão: estado 4 — olhos fechados com cílios ── -->
+  <g class="face-state face-state--closed" id="face-closed" style="display:none">
+    <path d="M32,62 C34,57 40,57 42,62" stroke="#1A1A1A" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M48,62 C50,57 56,57 58,62" stroke="#1A1A1A" stroke-width="2.5" stroke-linecap="round"/>
+    <!-- Cílios -->
+    <line x1="34" y1="58" x2="33" y2="54" stroke="#1A1A1A" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="37" y1="57" x2="37" y2="53" stroke="#1A1A1A" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="40" y1="58" x2="41" y2="54" stroke="#1A1A1A" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="50" y1="58" x2="49" y2="54" stroke="#1A1A1A" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="53" y1="57" x2="53" y2="53" stroke="#1A1A1A" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="56" y1="58" x2="57" y2="54" stroke="#1A1A1A" stroke-width="1.5" stroke-linecap="round"/>
+    <path d="M37,72 C40,76 50,76 53,72" stroke="#1A1A1A" stroke-width="2" stroke-linecap="round"/>
+  </g>
+
+  <!-- ── Expressão: estado 5 — sorrindo com olhos bem fechados ── -->
+  <g class="face-state face-state--happy" id="face-happy" style="display:none">
+    <path d="M32,62 C34,57 40,57 42,62" stroke="#1A1A1A" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M48,62 C50,57 56,57 58,62" stroke="#1A1A1A" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M35,73 C39,78 51,78 55,73" stroke="#1A1A1A" stroke-width="2.5" stroke-linecap="round"/>
+  </g>
+</svg>

@@ -1,0 +1,11 @@
+/* Dream Avenue — coloque o arquivo DreamAvenue.woff2 em assets/fonts/ */
+@font-face {
+  font-family: 'Dream Avenue';
+  src: url('../assets/fonts/DreamAvenue.woff2') format('woff2'),
+       url('../assets/fonts/DreamAvenue.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Poppins via Google Fonts — importado no <head> do HTML */

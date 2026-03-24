@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52" fill="none">
+  <!-- Cabelo cacheado simplificado (wreath mark) -->
+  <!-- Topo -->
+  <path d="M18,15 C16,8 22,4 26,9 C30,4 36,8 34,15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+  <!-- Lados superior -->
+  <path d="M12,22 C6,20 4,28 10,32" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+  <path d="M40,22 C46,20 48,28 42,32" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+  <!-- Lados inferior -->
+  <path d="M14,36 C8,36 6,44 12,46" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+  <path d="M38,36 C44,36 46,44 40,46" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+  <!-- Rosto oval -->
+  <ellipse cx="26" cy="32" rx="14" ry="16" stroke="currentColor" stroke-width="2"/>
+  <!-- Brinco vermelho -->
+  <circle cx="12" cy="38" r="2.5" fill="#B00909"/>
+  <!-- Olhos fechados (expressão serena) -->
+  <path d="M21,30 C22,28 24,28 25,30" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+  <path d="M27,30 C28,28 30,28 31,30" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+</svg>
