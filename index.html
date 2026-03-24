@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Carol Costa — UX Designer. Cientista Social de formação, UX Designer por acaso.">
+  <title>Carol Costa — UX Designer</title>
+
+  <!-- Poppins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/fonts.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-bg-dark="true">
+
+  <!-- ── Cursor ───────────────────────────────────────── -->
+  <div class="cursor" aria-hidden="true">
+    <div class="cursor__dot"></div>
+  </div>
+  <div class="cursor__follower" aria-hidden="true"></div>
+
+  <!-- ── Navegação fixa ───────────────────────────────── -->
+  <nav class="nav" id="nav" role="navigation" aria-label="Navegação principal">
+    <a href="#hero" class="nav__brand" aria-label="Carol Costa — início">
+      <img src="assets/svg/carol-logo-small.svg" class="nav__logo-icon" alt="Carol Costa" width="36" height="36">
+    </a>
+    <ul class="nav__links">
+      <li><a href="#sobre" class="nav__link">Sobre</a></li>
+      <li><a href="#work" class="nav__link">Work</a></li>
+      <li><a href="#contato" class="nav__link">Contato</a></li>
+    </ul>
+    <span class="nav__year" aria-hidden="true">2025</span>
+  </nav>
+
+  <!-- ══════════════════════════════════════════════════
+       HERO
+  ══════════════════════════════════════════════════ -->
+  <section class="hero" id="hero" aria-label="Apresentação">
+    <div class="hero__center">
+
+      <!-- Logo CaroL com olho -->
+      <div class="hero__logo-wrap" aria-label="Carol">
+        <span class="logo__text" aria-hidden="true">Car</span>
+        <span class="logo__eye-wrap" role="img" aria-label="o">
+          <svg class="logo__eye-svg" viewBox="0 0 200 110" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Linhas de velocidade -->
+            <line x1="0"  y1="40" x2="28" y2="40" stroke="currentColor" stroke-width="4.5" stroke-linecap="round"/>
+            <line x1="4"  y1="52" x2="28" y2="52" stroke="currentColor" stroke-width="4.5" stroke-linecap="round"/>
+            <line x1="1"  y1="64" x2="28" y2="64" stroke="currentColor" stroke-width="4.5" stroke-linecap="round"/>
+            <!-- Retângulo arredondado -->
+            <rect x="32" y="8" width="144" height="92" rx="24" ry="24"
+                  stroke="currentColor" stroke-width="6" fill="none"/>
+            <!-- Pálpebra superior -->
+            <path d="M56,54 C78,24 122,24 144,54"
+                  stroke="currentColor" stroke-width="5" stroke-linecap="round" fill="none"/>
+            <!-- Pálpebra inferior -->
+            <path d="M56,54 C78,82 122,82 144,54"
+                  stroke="currentColor" stroke-width="5" stroke-linecap="round" fill="none"/>
+            <!-- Íris -->
+            <circle cx="100" cy="54" r="18" stroke="currentColor" stroke-width="4.5" fill="none"/>
+            <!-- Pupila -->
+            <circle cx="100" cy="54" r="7" fill="currentColor"/>
+            <!-- Cílios -->
+            <line x1="65"  y1="38" x2="62"  y2="26" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+            <line x1="80"  y1="28" x2="79"  y2="16" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+            <line x1="100" y1="24" x2="100" y2="12" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+            <line x1="120" y1="28" x2="121" y2="16" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+            <line x1="135" y1="38" x2="138" y2="26" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+          </svg>
+        </span>
+        <span class="logo__text" aria-hidden="true">L</span>
+      </div>
+
+      <!-- Tagline com escala mista -->
+      <p class="hero__tagline" aria-label="Cientista Social de formação, UX Designer por acaso.">
+        <span class="tagline__line tagline__lg">Cientista Social</span>
+        <span class="tagline__line tagline__sm">de formação,</span>
+        <span class="tagline__line tagline__lg tagline__red">UX Designer</span>
+        <span class="tagline__line tagline__sm">por acaso.</span>
+      </p>
+
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="hero__scroll" aria-hidden="true">
+      <span>scroll</span>
+      <div class="hero__scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════
+       SOBRE
+  ══════════════════════════════════════════════════ -->
+  <section class="sobre" id="sobre" aria-label="Sobre Carol">
+    <div class="sobre__grid">
+
+      <aside class="sobre__aside" aria-hidden="true">
+        <span class="label-vert">Sobre</span>
+      </aside>
+
+      <div class="sobre__main">
+
+        <!-- Foto — substitua pelo seu arquivo em assets/img/carol-photo.jpg -->
+        <div class="sobre__photo-wrap">
+          <img
+            src="assets/img/carol-photo.jpg"
+            alt="Carol Costa sorrindo, com cabelo cacheado e brincos vermelhos"
+            class="sobre__photo"
+            loading="lazy"
+            onerror="this.closest('.sobre__photo-wrap').style.display='none'"
+          >
+          <span class="sobre__photo-label">Carol Costa, 2025</span>
+        </div>
+
+        <p class="sobre__intro">
+          Sou Carol Costa, designer formada em
+          <em>Ciências Sociais</em>
+          que encontrou no UX o lugar onde pesquisa, empatia e estética se encontram.
+        </p>
+
+        <p class="sobre__body">
+          Trabalho na interseção entre sistemas complexos e experiências simples —
+          criando produtos que fazem sentido para quem usa, não apenas para quem assina.
+          Minha formação em humanidades me dá uma lente diferente para enxergar
+          problemas e construir soluções que de fato resolvem.
+        </p>
+
+        <a href="https://linkedin.com/in/acscostas/" target="_blank" rel="noopener"
+           class="sobre__link">
+          LinkedIn →
+        </a>
+
+      </div>
+
+      <div class="sobre__year" aria-hidden="true">
+        <span class="year-stamp">2025</span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════
+       WORK — TIMELINE
+  ══════════════════════════════════════════════════ -->
+  <section class="work" id="work" aria-label="Projetos">
+    <p class="work__eyebrow" aria-hidden="true">Work</p>
+
+    <div class="timeline" id="timeline">
+
+      <!-- Linha vertical -->
+      <div class="timeline__vline" aria-hidden="true"></div>
+
+      <!-- Bonequinha (animada pelo GSAP) -->
+      <div class="bonequinha-wrap" id="bonequinha" aria-hidden="true">
+        <img src="assets/svg/bonequinha.svg" alt="Bonequinha">
+      </div>
+
+      <!-- Cases -->
+      <div class="timeline__cases">
+
+        <!-- ── Case 01 ── -->
+        <article class="case case--right" data-bg="#EDE8DF" data-text="#1A1A1A" id="case-01">
+          <div class="case__node" aria-hidden="true"></div>
+          <div class="case__body">
+            <span class="case__num">01</span>
+            <h3 class="case__title">Nome do Case</h3>
+            <p class="case__company">Empresa · Tipo de projeto</p>
+            <p class="case__teaser">
+              Uma frase que resume o problema resolvido e o impacto gerado para o usuário e o negócio.
+            </p>
+            <a href="#" class="case__cta">
+              Ver case <span class="case__cta-arrow" aria-hidden="true">→</span>
+            </a>
+          </div>
+        </article>
+
+        <!-- ── Case 02 ── -->
+        <article class="case case--left" data-bg="#8B9BB4" data-text="#F8F5F0" id="case-02">
+          <div class="case__node" aria-hidden="true"></div>
+          <div class="case__body">
+            <span class="case__num">02</span>
+            <h3 class="case__title">Nome do Case</h3>
+            <p class="case__company">Empresa · Tipo de projeto</p>
+            <p class="case__teaser">
+              Uma frase que resume o problema resolvido e o impacto gerado para o usuário e o negócio.
+            </p>
+            <a href="#" class="case__cta">
+              Ver case <span class="case__cta-arrow" aria-hidden="true">→</span>
+            </a>
+          </div>
+        </article>
+
+        <!-- ── Case 03 ── -->
+        <article class="case case--right" data-bg="#D4C5A9" data-text="#1A1A1A" id="case-03">
+          <div class="case__node" aria-hidden="true"></div>
+          <div class="case__body">
+            <span class="case__num">03</span>
+            <h3 class="case__title">Nome do Case</h3>
+            <p class="case__company">Empresa · Tipo de projeto</p>
+            <p class="case__teaser">
+              Uma frase que resume o problema resolvido e o impacto gerado para o usuário e o negócio.
+            </p>
+            <a href="#" class="case__cta">
+              Ver case <span class="case__cta-arrow" aria-hidden="true">→</span>
+            </a>
+          </div>
+        </article>
+
+        <!-- ── Case 04 ── -->
+        <article class="case case--left" data-bg="#8B7BA8" data-text="#F8F5F0" id="case-04">
+          <div class="case__node" aria-hidden="true"></div>
+          <div class="case__body">
+            <span class="case__num">04</span>
+            <h3 class="case__title">Nome do Case</h3>
+            <p class="case__company">Empresa · Tipo de projeto</p>
+            <p class="case__teaser">
+              Uma frase que resume o problema resolvido e o impacto gerado para o usuário e o negócio.
+            </p>
+            <a href="#" class="case__cta">
+              Ver case <span class="case__cta-arrow" aria-hidden="true">→</span>
+            </a>
+          </div>
+        </article>
+
+        <!-- ── Case 05 (vermelho — impacto) ── -->
+        <article class="case case--right" data-bg="#B00909" data-text="#F8F5F0" id="case-05">
+          <div class="case__node" aria-hidden="true"></div>
+          <div class="case__body">
+            <span class="case__num">05</span>
+            <h3 class="case__title">Nome do Case</h3>
+            <p class="case__company">Empresa · Tipo de projeto</p>
+            <p class="case__teaser">
+              Uma frase que resume o problema resolvido e o impacto gerado para o usuário e o negócio.
+            </p>
+            <a href="#" class="case__cta">
+              Ver case <span class="case__cta-arrow" aria-hidden="true">→</span>
+            </a>
+          </div>
+        </article>
+
+      </div><!-- /.timeline__cases -->
+    </div><!-- /.timeline -->
+  </section>
+
+  <!-- ══════════════════════════════════════════════════
+       CONTATO
+  ══════════════════════════════════════════════════ -->
+  <section class="contato" id="contato" aria-label="Contato">
+    <div class="contato__inner">
+      <p class="contato__pre">Vamos trabalhar juntas?</p>
+      <h2 class="contato__headline">
+        <em>Criar</em><br>
+        coisas<br>
+        que<br>
+        importam.
+      </h2>
+      <div class="contato__links">
+        <a href="mailto:carol@carolcosta.co" class="contato__link">
+          carol@carolcosta.co
+        </a>
+        <a href="https://linkedin.com/in/acscostas/" target="_blank" rel="noopener"
+           class="contato__link">
+          LinkedIn
+        </a>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <span class="footer__copy">Carol Costa © 2025</span>
+      <span class="footer__role">UX Design · Art Direction</span>
+    </footer>
+  </section>
+
+  <!-- ── GSAP CDN ─────────────────────────────────────── -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+
+  <!-- ── Scripts ──────────────────────────────────────── -->
+  <script src="js/cursor.js"></script>
+  <script src="js/timeline.js"></script>
+
+</body>
+</html>
