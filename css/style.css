@@ -192,7 +192,7 @@ body[data-bg-dark="true"] .nav__year {
 .hero {
   height: 100dvh;
   min-height: 600px;
-  background-color: var(--so-white);
+  background-color: var(--cherry);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -200,6 +200,14 @@ body[data-bg-dark="true"] .nav__year {
   position: relative;
   overflow: hidden;
 }
+
+/* Textos do hero no fundo cherry */
+.hero .hero__logo-wrap { color: var(--so-white); }
+.hero .tagline__lg     { color: var(--so-white); }
+.hero .tagline__red    { color: var(--so-white); opacity: 0.75; }
+.hero .hero__scroll span { color: var(--so-white); }
+.hero .hero__scroll-line { background: var(--so-white); }
+.hero .hero__scroll-line::after { background: var(--so-white); }
 
 .hero__center {
   display: flex;

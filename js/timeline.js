@@ -13,8 +13,14 @@ gsap.registerPlugin(ScrollTrigger);
   ScrollTrigger.create({
     trigger: '#sobre',
     start: 'top 80px',
-    onEnter: () => nav.classList.add('nav--scrolled'),
-    onLeaveBack: () => nav.classList.remove('nav--scrolled'),
+    onEnter: () => {
+      nav.classList.add('nav--scrolled');
+      document.body.removeAttribute('data-bg-dark'); // saindo do hero cherry
+    },
+    onLeaveBack: () => {
+      nav.classList.remove('nav--scrolled');
+      document.body.setAttribute('data-bg-dark', 'true'); // voltando ao hero
+    },
   });
 
   /* ── 2. Hero: entrada suave ──────────────────────────── */
