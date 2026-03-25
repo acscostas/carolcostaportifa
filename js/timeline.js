@@ -129,9 +129,61 @@ gsap.registerPlugin(ScrollTrigger);
         start: 'top 70%',
       },
     });
+
+    // Animar scrapbook do lado oposto
+    const scrapbook = caseEl.querySelector('.case__scrapbook-inner');
+    if (scrapbook) {
+      gsap.from(scrapbook, {
+        x: isLeft ? 40 : -40,
+        opacity: 0,
+        duration: 0.8,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: caseEl,
+          start: 'top 65%',
+        },
+      });
+    }
   });
 
-  /* ── 7. Contato: animação ────────────────────────────── */
+  /* ── 7. ART: transição de cores ao entrar ─────────────── */
+  const artSection = document.getElementById('art');
+  if (artSection) {
+    ScrollTrigger.create({
+      trigger: '#art',
+      start: 'top 80%',
+      onEnter: () => {
+        resetColors();
+      },
+      onLeaveBack: () => {
+        // Restaura a última cor da timeline
+        const lastCase = cases[cases.length - 1];
+        if (lastCase) {
+          const bg = lastCase.dataset.bg;
+          const text = lastCase.dataset.text || '#1A1A1A';
+          setColors(bg, text, isColorDark(bg));
+        }
+      },
+    });
+
+    // Entrada suave dos cards
+    const artCards = artSection.querySelectorAll('.art__card');
+    artCards.forEach((card, i) => {
+      gsap.from(card, {
+        y: 30,
+        opacity: 0,
+        duration: 0.5,
+        delay: i * 0.06,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: card,
+          start: 'top 90%',
+        },
+      });
+    });
+  }
+
+  /* ── 8. Contato: animação ────────────────────────────── */
   const contatoHeadline = document.querySelector('.contato__headline');
   if (contatoHeadline) {
     gsap.from(contatoHeadline, {
@@ -154,15 +206,15 @@ gsap.registerPlugin(ScrollTrigger);
       document.body.removeAttribute('data-bg-dark');
       // Reseta body bg — contato tem bg próprio pelo CSS
       document.body.style.backgroundColor = '';
+      // Bonequinha bg reset
+      if (bonequinha) {
+        bonequinha.style.backgroundColor = '';
+      }
     },
     onLeaveBack: () => {
-      // Volta para a última cor da timeline
-      const lastCase = cases[cases.length - 1];
-      if (lastCase) {
-        const bg = lastCase.dataset.bg;
-        const text = lastCase.dataset.text || '#1A1A1A';
-        setColors(bg, text, isColorDark(bg));
-      }
+      // Se volta do contato, vai para a seção ART (não a timeline)
+      // A ART section tem bg próprio, resetar body
+      resetColors();
     },
   });
 
@@ -171,12 +223,20 @@ gsap.registerPlugin(ScrollTrigger);
     document.body.style.backgroundColor = bg;
     document.body.style.color = textColor;
     document.body.setAttribute('data-bg-dark', dark ? 'true' : 'false');
+    // Sync bonequinha background
+    if (bonequinha) {
+      bonequinha.style.backgroundColor = bg;
+    }
   }
 
   function resetColors() {
     document.body.style.backgroundColor = defaultBg;
     document.body.style.color = '#1A1A1A';
     document.body.removeAttribute('data-bg-dark');
+    // Reset bonequinha background
+    if (bonequinha) {
+      bonequinha.style.backgroundColor = defaultBg;
+    }
   }
 
   function isColorDark(hex) {

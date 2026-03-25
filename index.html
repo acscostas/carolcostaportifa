@@ -22,16 +22,32 @@
   <div class="cursor" aria-hidden="true">
     <div class="cursor__dot"></div>
   </div>
-  <div class="cursor__follower" aria-hidden="true"></div>
+  <div class="cursor__eye" aria-hidden="true">
+    <svg class="cursor__eye-svg" viewBox="0 0 130 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Pálpebra superior -->
+      <path d="M15,46 C40,10 90,10 115,46" stroke="currentColor" stroke-width="3" stroke-linecap="round" fill="none"/>
+      <!-- Pálpebra inferior -->
+      <path d="M15,46 C40,74 90,74 115,46" stroke="currentColor" stroke-width="3" stroke-linecap="round" fill="none"/>
+      <!-- Íris -->
+      <circle cx="65" cy="46" r="16" stroke="currentColor" stroke-width="2.5" fill="none"/>
+      <!-- Cílios -->
+      <line x1="25" y1="29" x2="21" y2="16" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+      <line x1="43" y1="18" x2="41" y2="5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+      <line x1="65" y1="13" x2="65" y2="0" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+      <line x1="87" y1="18" x2="89" y2="5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+      <line x1="105" y1="29" x2="109" y2="16" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+    </svg>
+  </div>
 
   <!-- ── Navegação fixa ───────────────────────────────── -->
   <nav class="nav" id="nav" role="navigation" aria-label="Navegação principal">
     <a href="#hero" class="nav__brand" aria-label="Carol Costa — início">
-      <img src="assets/svg/carol-logo-small.svg" class="nav__logo-icon" alt="Carol Costa" width="36" height="36">
+      <img src="assets/svg/bonequinha.svg" class="nav__logo-icon" alt="Carol Costa" width="40" height="40">
     </a>
     <ul class="nav__links">
       <li><a href="#sobre" class="nav__link">Sobre</a></li>
-      <li><a href="#work" class="nav__link">Work</a></li>
+      <li><a href="#work" class="nav__link">UX Cases</a></li>
+      <li><a href="#art" class="nav__link">ART</a></li>
       <li><a href="#contato" class="nav__link">Contato</a></li>
     </ul>
     <span class="nav__year" aria-hidden="true">2025</span>
@@ -76,12 +92,10 @@
         <span class="logo__text" aria-hidden="true">L</span>
       </div>
 
-      <!-- Tagline com escala mista -->
+      <!-- Tagline unificada -->
       <p class="hero__tagline" aria-label="Cientista Social de formação, UX Designer por acaso.">
-        <span class="tagline__line tagline__lg">Cientista Social</span>
-        <span class="tagline__line tagline__sm">de formação,</span>
-        <span class="tagline__line tagline__lg tagline__red">UX Designer</span>
-        <span class="tagline__line tagline__sm">por acaso.</span>
+        <span class="tagline__key">Cientista Social</span><span class="tagline__connector"> de formação,</span><br>
+        <span class="tagline__key tagline__key--red">UX Designer</span><span class="tagline__connector"> por acaso.</span>
       </p>
 
     </div>
@@ -105,40 +119,35 @@
 
       <div class="sobre__main">
 
-        <!-- Foto — substitua pelo seu arquivo em assets/img/carol-photo.jpg -->
-        <div class="sobre__photo-wrap">
-          <img
-            src="assets/img/carol-photo.jpg"
-            alt="Carol Costa sorrindo, com cabelo cacheado e brincos vermelhos"
-            class="sobre__photo"
-            loading="lazy"
-            onerror="this.closest('.sobre__photo-wrap').style.display='none'"
-          >
-          <span class="sobre__photo-label">Carol Costa, 2025</span>
+        <div class="sobre__text">
+          <p class="sobre__intro">
+            Me chamo Carol e sou designer formada em
+            <em>Ciências Sociais</em>
+            que encontrou no UX um lugar onde pesquisa, empatia e estética se encontram
+          </p>
+
+          <p class="sobre__body">
+            Minha jornada no design sempre foi impulsionada pela Antropologia, conectando cultura, tecnologia e experiência do usuário. Me tornei especialista em processos de discovery e pesquisa qualitativa, utilizo observação participante, análise de narrativas e descrição densa para transformar insights em soluções estratégicas.
+          </p>
+
+          <a href="/sobre" class="sobre__cta">
+            Ver Mais <span aria-hidden="true">→</span>
+          </a>
         </div>
 
-        <p class="sobre__intro">
-          Sou Carol Costa, designer formada em
-          <em>Ciências Sociais</em>
-          que encontrou no UX o lugar onde pesquisa, empatia e estética se encontram.
-        </p>
+        <div class="sobre__photo-col">
+          <div class="sobre__photo-frame">
+            <img
+              src="assets/img/carol-photo.jpg"
+              alt="Carol Costa, 2025"
+              class="sobre__photo"
+              loading="lazy"
+              onerror="this.closest('.sobre__photo-frame').classList.add('sobre__photo-frame--empty')"
+            >
+            <span class="sobre__photo-label">Carol Costa, 2025</span>
+          </div>
+        </div>
 
-        <p class="sobre__body">
-          Trabalho na interseção entre sistemas complexos e experiências simples —
-          criando produtos que fazem sentido para quem usa, não apenas para quem assina.
-          Minha formação em humanidades me dá uma lente diferente para enxergar
-          problemas e construir soluções que de fato resolvem.
-        </p>
-
-        <a href="https://linkedin.com/in/acscostas/" target="_blank" rel="noopener"
-           class="sobre__link">
-          LinkedIn →
-        </a>
-
-      </div>
-
-      <div class="sobre__year" aria-hidden="true">
-        <span class="year-stamp">2025</span>
       </div>
 
     </div>
@@ -148,7 +157,7 @@
        WORK — TIMELINE
   ══════════════════════════════════════════════════ -->
   <section class="work" id="work" aria-label="Projetos">
-    <p class="work__eyebrow" aria-hidden="true">Work</p>
+    <p class="work__eyebrow" aria-hidden="true">UX Cases</p>
 
     <div class="timeline" id="timeline">
 
@@ -165,6 +174,14 @@
 
         <!-- ── Case 01 ── -->
         <article class="case case--right" data-bg="#EDE8DF" data-text="#1A1A1A" id="case-01">
+          <div class="case__scrapbook case__scrapbook--left">
+            <div class="case__scrapbook-inner">
+              <img src="assets/img/case-01-thumb.jpg" alt="Screenshot Case 01"
+                   onerror="this.closest('.case__scrapbook-inner').classList.add('case__scrapbook-inner--empty')">
+              <span class="case__sticker case__sticker--tr"></span>
+              <span class="case__sticker case__sticker--bl"></span>
+            </div>
+          </div>
           <div class="case__node" aria-hidden="true"></div>
           <div class="case__body">
             <span class="case__num">01</span>
@@ -181,7 +198,6 @@
 
         <!-- ── Case 02 ── -->
         <article class="case case--left" data-bg="#8B9BB4" data-text="#F8F5F0" id="case-02">
-          <div class="case__node" aria-hidden="true"></div>
           <div class="case__body">
             <span class="case__num">02</span>
             <h3 class="case__title">Nome do Case</h3>
@@ -193,10 +209,27 @@
               Ver case <span class="case__cta-arrow" aria-hidden="true">→</span>
             </a>
           </div>
+          <div class="case__node" aria-hidden="true"></div>
+          <div class="case__scrapbook case__scrapbook--right">
+            <div class="case__scrapbook-inner case__scrapbook-inner--flip">
+              <img src="assets/img/case-02-thumb.jpg" alt="Screenshot Case 02"
+                   onerror="this.closest('.case__scrapbook-inner').classList.add('case__scrapbook-inner--empty')">
+              <span class="case__sticker case__sticker--tl"></span>
+              <span class="case__sticker case__sticker--br"></span>
+            </div>
+          </div>
         </article>
 
         <!-- ── Case 03 ── -->
         <article class="case case--right" data-bg="#D4C5A9" data-text="#1A1A1A" id="case-03">
+          <div class="case__scrapbook case__scrapbook--left">
+            <div class="case__scrapbook-inner">
+              <img src="assets/img/case-03-thumb.jpg" alt="Screenshot Case 03"
+                   onerror="this.closest('.case__scrapbook-inner').classList.add('case__scrapbook-inner--empty')">
+              <span class="case__sticker case__sticker--tr"></span>
+              <span class="case__sticker case__sticker--bl"></span>
+            </div>
+          </div>
           <div class="case__node" aria-hidden="true"></div>
           <div class="case__body">
             <span class="case__num">03</span>
@@ -213,7 +246,6 @@
 
         <!-- ── Case 04 ── -->
         <article class="case case--left" data-bg="#8B7BA8" data-text="#F8F5F0" id="case-04">
-          <div class="case__node" aria-hidden="true"></div>
           <div class="case__body">
             <span class="case__num">04</span>
             <h3 class="case__title">Nome do Case</h3>
@@ -225,10 +257,27 @@
               Ver case <span class="case__cta-arrow" aria-hidden="true">→</span>
             </a>
           </div>
+          <div class="case__node" aria-hidden="true"></div>
+          <div class="case__scrapbook case__scrapbook--right">
+            <div class="case__scrapbook-inner case__scrapbook-inner--flip">
+              <img src="assets/img/case-04-thumb.jpg" alt="Screenshot Case 04"
+                   onerror="this.closest('.case__scrapbook-inner').classList.add('case__scrapbook-inner--empty')">
+              <span class="case__sticker case__sticker--tl"></span>
+              <span class="case__sticker case__sticker--br"></span>
+            </div>
+          </div>
         </article>
 
         <!-- ── Case 05 (vermelho — impacto) ── -->
         <article class="case case--right" data-bg="#B00909" data-text="#F8F5F0" id="case-05">
+          <div class="case__scrapbook case__scrapbook--left">
+            <div class="case__scrapbook-inner">
+              <img src="assets/img/case-05-thumb.jpg" alt="Screenshot Case 05"
+                   onerror="this.closest('.case__scrapbook-inner').classList.add('case__scrapbook-inner--empty')">
+              <span class="case__sticker case__sticker--tr"></span>
+              <span class="case__sticker case__sticker--bl"></span>
+            </div>
+          </div>
           <div class="case__node" aria-hidden="true"></div>
           <div class="case__body">
             <span class="case__num">05</span>
@@ -248,16 +297,91 @@
   </section>
 
   <!-- ══════════════════════════════════════════════════
+       ART
+  ══════════════════════════════════════════════════ -->
+  <section class="art" id="art" aria-label="Direção Artística">
+
+    <div class="art__left">
+      <h2 class="art__title">ART<br>WILL<br>SAVE<br>US</h2>
+    </div>
+
+    <div class="art__grid">
+
+      <a href="#" class="art__card">
+        <div class="art__card-img"></div>
+        <div class="art__card-info">
+          <span class="art__card-name">Projeto 01</span>
+          <span class="art__card-date">2024</span>
+        </div>
+      </a>
+
+      <a href="#" class="art__card">
+        <div class="art__card-img"></div>
+        <div class="art__card-info">
+          <span class="art__card-name">Projeto 02</span>
+          <span class="art__card-date">2024</span>
+        </div>
+      </a>
+
+      <a href="#" class="art__card">
+        <div class="art__card-img"></div>
+        <div class="art__card-info">
+          <span class="art__card-name">Projeto 03</span>
+          <span class="art__card-date">2023</span>
+        </div>
+      </a>
+
+      <a href="#" class="art__card">
+        <div class="art__card-img"></div>
+        <div class="art__card-info">
+          <span class="art__card-name">Projeto 04</span>
+          <span class="art__card-date">2023</span>
+        </div>
+      </a>
+
+      <a href="#" class="art__card">
+        <div class="art__card-img"></div>
+        <div class="art__card-info">
+          <span class="art__card-name">Projeto 05</span>
+          <span class="art__card-date">2022</span>
+        </div>
+      </a>
+
+      <a href="#" class="art__card">
+        <div class="art__card-img"></div>
+        <div class="art__card-info">
+          <span class="art__card-name">Projeto 06</span>
+          <span class="art__card-date">2022</span>
+        </div>
+      </a>
+
+      <a href="#" class="art__card">
+        <div class="art__card-img"></div>
+        <div class="art__card-info">
+          <span class="art__card-name">Projeto 07</span>
+          <span class="art__card-date">2021</span>
+        </div>
+      </a>
+
+      <a href="#" class="art__card">
+        <div class="art__card-img"></div>
+        <div class="art__card-info">
+          <span class="art__card-name">Projeto 08</span>
+          <span class="art__card-date">2021</span>
+        </div>
+      </a>
+
+    </div><!-- /.art__grid -->
+  </section>
+
+  <!-- ══════════════════════════════════════════════════
        CONTATO
   ══════════════════════════════════════════════════ -->
   <section class="contato" id="contato" aria-label="Contato">
     <div class="contato__inner">
-      <p class="contato__pre">Vamos trabalhar juntas?</p>
+      <p class="contato__pre">o que podemos criar juntos?</p>
       <h2 class="contato__headline">
-        <em>Criar</em><br>
-        coisas<br>
-        que<br>
-        importam.
+        <em>Observar</em> para,<br>então, criar.
       </h2>
       <div class="contato__links">
         <a href="mailto:carol@carolcosta.co" class="contato__link">
@@ -272,7 +396,7 @@
 
     <footer class="footer">
       <span class="footer__copy">Carol Costa © 2025</span>
-      <span class="footer__role">UX Design · Art Direction</span>
+      <span class="footer__role">Pesquisa · UX Design · Art Direction</span>
     </footer>
   </section>
 
