@@ -481,6 +481,7 @@ body[data-bg-dark="true"] .nav__year {
   opacity: 0.15;
   transform: translateX(-50%);
   pointer-events: none;
+  z-index: 1;
 }
 
 /* Bonequinha — fundo opaco */
@@ -511,7 +512,7 @@ body[data-bg-dark="true"] .nav__year {
 
 .case {
   display: grid;
-  grid-template-columns: 1fr 56px 1fr;
+  grid-template-columns: 1fr 80px 1fr;
   min-height: 75vh;
   align-items: center;
   padding: 12vh 0;
@@ -549,7 +550,7 @@ body[data-bg-dark="true"] .nav__year {
   border: 2px solid currentColor;
   background: transparent;
   position: relative;
-  z-index: 5;
+  z-index: 10;
   transition: background 0.3s, transform 0.3s;
 }
 
@@ -648,12 +649,14 @@ body[data-bg-dark="true"] .nav__year {
 
 .case__scrapbook--left {
   grid-column: 1;
+  grid-row: 1;
   justify-content: flex-end;
   padding-right: clamp(1.5rem, 3vw, 3rem);
 }
 
 .case__scrapbook--right {
   grid-column: 3;
+  grid-row: 1;
   justify-content: flex-start;
   padding-left: clamp(1.5rem, 3vw, 3rem);
 }
@@ -720,29 +723,29 @@ body[data-bg-dark="true"] .nav__year {
 }
 
 .case__sticker--tr {
-  top: -4px;
-  right: 14px;
+  top: -2px;
+  right: -2px;
   transform: rotate(-38deg);
   transform-origin: center;
 }
 
 .case__sticker--bl {
-  bottom: -4px;
-  left: 14px;
+  bottom: -2px;
+  left: -2px;
   transform: rotate(-38deg);
   transform-origin: center;
 }
 
 .case__sticker--tl {
-  top: -4px;
-  left: 14px;
+  top: -2px;
+  left: -2px;
   transform: rotate(38deg);
   transform-origin: center;
 }
 
 .case__sticker--br {
-  bottom: -4px;
-  right: 14px;
+  bottom: -2px;
+  right: -2px;
   transform: rotate(38deg);
   transform-origin: center;
 }
@@ -768,7 +771,8 @@ body[data-bg-dark="true"] .nav__year {
 
 .art__left {
   position: sticky;
-  top: 16vh;
+  top: 50%;
+  transform: translateY(-50%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -872,51 +876,43 @@ body[data-bg-dark="true"] .nav__year {
   top: 2.2rem;
   right: 6vw;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  gap: 0;
+  gap: 0.5rem;
+  overflow: hidden;
   cursor: none;
   text-decoration: none;
   z-index: 10;
 }
 
 .claude-credit__icon {
-  width: 26px;
-  height: 26px;
-  opacity: 0.35;
+  width: 38px;
+  height: 38px;
+  opacity: 0.4;
+  flex-shrink: 0;
   transition: opacity 0.25s ease;
 }
 
 .claude-credit:hover .claude-credit__icon {
-  opacity: 0.8;
+  opacity: 0.85;
 }
 
-.claude-credit__tooltip {
-  position: absolute;
-  top: calc(100% + 0.7rem);
-  right: 0;
-  background: rgba(248, 245, 240, 0.08);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(248, 245, 240, 0.12);
-  color: rgba(248, 245, 240, 0.65);
+.claude-credit__text {
   font-family: var(--font-body);
-  font-size: 0.58rem;
+  font-size: 0.72rem;
   font-weight: 300;
-  letter-spacing: 0.08em;
-  padding: 0.55rem 0.8rem;
+  letter-spacing: 0.1em;
   white-space: nowrap;
+  color: rgba(248, 245, 240, 0.55);
+  transform: translateX(120%);
   opacity: 0;
-  transform: translateY(-6px);
-  transition: opacity 0.25s ease, transform 0.25s ease;
+  transition: transform 0.35s ease, opacity 0.35s ease;
   pointer-events: none;
-  text-align: right;
-  line-height: 1.7;
 }
 
-.claude-credit:hover .claude-credit__tooltip {
+.claude-credit:hover .claude-credit__text {
+  transform: translateX(0);
   opacity: 1;
-  transform: translateY(0);
 }
 
 .contato::before {
