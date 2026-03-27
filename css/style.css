@@ -867,14 +867,6 @@ body[data-bg-dark="true"] .nav__year {
   transform: translateY(-50%);
 }
 
-/* Linha "o que podemos criar juntos?" + crédito Claude */
-.contato__pre-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 2rem;
-}
-
 /* Claude AI credit — inline, sempre visível */
 .claude-credit {
   display: flex;
@@ -978,6 +970,12 @@ body[data-bg-dark="true"] .nav__year {
   align-items: flex-end;
   flex-wrap: wrap;
   gap: 1rem;
+}
+
+.footer__right {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
 }
 
 .footer__copy,
