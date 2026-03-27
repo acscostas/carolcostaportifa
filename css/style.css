@@ -639,6 +639,7 @@ body[data-bg-dark="true"] .nav__year {
   grid-row: 1;
   justify-content: flex-end;
   padding-right: clamp(2rem, 4vw, 4rem);
+  transform: translateX(-24px);
 }
 
 .case__scrapbook--right {
@@ -646,6 +647,7 @@ body[data-bg-dark="true"] .nav__year {
   grid-row: 1;
   justify-content: flex-start;
   padding-left: clamp(2rem, 4vw, 4rem);
+  transform: translateX(24px);
 }
 
 .case__scrapbook-inner {
@@ -691,8 +693,10 @@ body[data-bg-dark="true"] .nav__year {
   opacity: 0.2;
 }
 
-/* Stickers — washi tape estilo kraft paper */
-.case__sticker {
+/* Stickers — removidos */
+.case__sticker { display: none; }
+
+.case__sticker--hidden {
   position: absolute;
   width: 72px;
   height: 16px;
