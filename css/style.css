@@ -513,9 +513,9 @@ body[data-bg-dark="true"] .nav__year {
 .case {
   display: grid;
   grid-template-columns: 1fr 80px 1fr;
-  min-height: 75vh;
+  min-height: 80vh;
   align-items: center;
-  padding: 12vh 0;
+  padding: 16vh 0;
   position: relative;
 }
 
@@ -651,19 +651,19 @@ body[data-bg-dark="true"] .nav__year {
   grid-column: 1;
   grid-row: 1;
   justify-content: flex-end;
-  padding-right: clamp(1.5rem, 3vw, 3rem);
+  padding-right: clamp(2rem, 4vw, 4rem);
 }
 
 .case__scrapbook--right {
   grid-column: 3;
   grid-row: 1;
   justify-content: flex-start;
-  padding-left: clamp(1.5rem, 3vw, 3rem);
+  padding-left: clamp(2rem, 4vw, 4rem);
 }
 
 .case__scrapbook-inner {
   position: relative;
-  width: clamp(160px, 18vw, 260px);
+  width: clamp(180px, 22vw, 300px);
   transform: rotate(2deg);
   box-shadow: 0 8px 28px rgba(0, 0, 0, 0.12);
   background: var(--so-white);
@@ -723,29 +723,29 @@ body[data-bg-dark="true"] .nav__year {
 }
 
 .case__sticker--tr {
-  top: -2px;
-  right: -2px;
+  top: -8px;
+  right: -36px;
   transform: rotate(-38deg);
   transform-origin: center;
 }
 
 .case__sticker--bl {
-  bottom: -2px;
-  left: -2px;
+  bottom: -8px;
+  left: -36px;
   transform: rotate(-38deg);
   transform-origin: center;
 }
 
 .case__sticker--tl {
-  top: -2px;
-  left: -2px;
+  top: -8px;
+  left: -36px;
   transform: rotate(38deg);
   transform-origin: center;
 }
 
 .case__sticker--br {
-  bottom: -2px;
-  right: -2px;
+  bottom: -8px;
+  right: -36px;
   transform: rotate(38deg);
   transform-origin: center;
 }
