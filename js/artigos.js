@@ -31,31 +31,22 @@
 
   const GRID_SIZE = 18;
   const LETTERS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+
+  // Apenas horizontal e vertical — sem diagonal
   const DIRECTIONS = [
-    [0, 1],   // →
-    [0, -1],  // ←
-    [1, 0],   // ↓
-    [-1, 0],  // ↑
-    [1, 1],   // ↘
-    [-1, -1], // ↖
-    [1, -1],  // ↙
-    [-1, 1],  // ↗
+    { dr: 0, dc: 1, dir: 'h' },  // → direita
+    { dr: 1, dc: 0, dir: 'v' },  // ↓ baixo
   ];
 
   /* ── Construção do grid ──────────────────────────────────── */
   function buildGrid() {
-    // Criar grid vazio
-    const grid = Array.from({ length: GRID_SIZE }, () =>
-      Array(GRID_SIZE).fill(null)
-    );
-    // wordMap: grid de strings para rastrear qual palavra ocupa cada célula
-    const wordMap = Array.from({ length: GRID_SIZE }, () =>
-      Array(GRID_SIZE).fill(null)
-    );
+    const grid    = Array.from({ length: GRID_SIZE }, () => Array(GRID_SIZE).fill(null));
+    const wordMap = Array.from({ length: GRID_SIZE }, () => Array(GRID_SIZE).fill(null));
+    const dirMap  = Array.from({ length: GRID_SIZE }, () => Array(GRID_SIZE).fill(null));
+    const edgeMap = Array.from({ length: GRID_SIZE }, () => Array(GRID_SIZE).fill(null));
 
-    // Tentar inserir cada palavra
     for (const artigo of ARTIGOS) {
-      placeWord(grid, wordMap, artigo.word);
+      placeWord(grid, wordMap, dirMap, edgeMap, artigo.word);
     }
 
     // Preencher células vazias com letras aleatórias
@@ -67,25 +58,32 @@
       }
     }
 
-    return { grid, wordMap };
+    return { grid, wordMap, dirMap, edgeMap };
   }
 
-  function placeWord(grid, wordMap, word) {
-    const maxAttempts = 200;
+  function placeWord(grid, wordMap, dirMap, edgeMap, word) {
+    const maxAttempts = 300;
+    // Embaralhar direções para variação
+    const dirs = [...DIRECTIONS].sort(() => Math.random() - 0.5);
+
     for (let attempt = 0; attempt < maxAttempts; attempt++) {
-      const [dr, dc] = DIRECTIONS[Math.floor(Math.random() * DIRECTIONS.length)];
+      const { dr, dc, dir } = dirs[attempt % dirs.length];
       const row = Math.floor(Math.random() * GRID_SIZE);
       const col = Math.floor(Math.random() * GRID_SIZE);
 
       if (canPlace(grid, wordMap, word, row, col, dr, dc)) {
         for (let i = 0; i < word.length; i++) {
-          grid[row + dr * i][col + dc * i] = word[i];
-          wordMap[row + dr * i][col + dc * i] = word;
+          const r = row + dr * i;
+          const c = col + dc * i;
+          grid[r][c]    = word[i];
+          wordMap[r][c] = word;
+          dirMap[r][c]  = dir;
+          edgeMap[r][c] = i === 0 ? 'start' : i === word.length - 1 ? 'end' : 'mid';
         }
         return true;
       }
     }
-    return false; // não conseguiu encaixar (raro)
+    return false;
   }
 
   function canPlace(grid, wordMap, word, row, col, dr, dc) {
@@ -94,12 +92,14 @@
       const c = col + dc * i;
       if (r < 0 || r >= GRID_SIZE || c < 0 || c >= GRID_SIZE) return false;
       if (grid[r][c] !== null && grid[r][c] !== word[i]) return false;
+      // Evitar que duas palavras diferentes compartilhem células
+      if (wordMap[r][c] !== null && wordMap[r][c] !== word) return false;
     }
     return true;
   }
 
   /* ── Renderização ────────────────────────────────────────── */
-  function render(grid, wordMap) {
+  function render({ grid, wordMap, dirMap, edgeMap }) {
     const container = document.getElementById('artigosGrid');
     if (!container) return;
 
@@ -111,12 +111,14 @@
         span.className = 'artigos__letter';
         span.textContent = grid[r][c];
 
-        // Rotação leve aleatória para efeito caótico
-        const rot = (Math.random() * 12 - 6).toFixed(1);
+        // Rotação leve aleatória — efeito caótico
+        const rot = (Math.random() * 10 - 5).toFixed(1);
         span.style.transform = `rotate(${rot}deg)`;
 
         if (wordMap[r][c]) {
-          span.dataset.word = wordMap[r][c];
+          span.dataset.word    = wordMap[r][c];
+          span.dataset.wordDir = dirMap[r][c];
+          span.dataset.wordEdge = edgeMap[r][c];
         }
 
         fragment.appendChild(span);
@@ -127,50 +129,69 @@
     bindEvents(container);
   }
 
-  /* ── Interação ───────────────────────────────────────────── */
-  let activeWord = null;
+  /* ── Estado de interação ─────────────────────────────────── */
+  let hoveredWord = null;
+  let activeWord  = null;
 
+  function setWordState(container, word, state) {
+    if (!word) return;
+    container.querySelectorAll(`[data-word="${word}"]`).forEach((el) => {
+      el.classList.remove('artigos__letter--word-hover', 'artigos__letter--word-active');
+      if (state === 'hover')  el.classList.add('artigos__letter--word-hover');
+      if (state === 'active') el.classList.add('artigos__letter--word-active');
+    });
+  }
+
+  /* ── Eventos ─────────────────────────────────────────────── */
   function bindEvents(container) {
     container.addEventListener('mouseover', (e) => {
       const letter = e.target.closest('.artigos__letter[data-word]');
-      if (!letter) return;
-      highlightWord(container, letter.dataset.word, true);
+      const word = letter?.dataset.word ?? null;
+
+      if (word === hoveredWord) return;
+
+      // Remove hover da palavra anterior (se não for a ativa)
+      if (hoveredWord && hoveredWord !== activeWord) {
+        setWordState(container, hoveredWord, 'none');
+      }
+
+      hoveredWord = word;
+
+      if (word && word !== activeWord) {
+        setWordState(container, word, 'hover');
+      }
     });
 
-    container.addEventListener('mouseout', (e) => {
-      const letter = e.target.closest('.artigos__letter[data-word]');
-      if (!letter || letter.dataset.word === activeWord) return;
-      highlightWord(container, letter.dataset.word, false);
+    container.addEventListener('mouseleave', () => {
+      if (hoveredWord && hoveredWord !== activeWord) {
+        setWordState(container, hoveredWord, 'none');
+      }
+      hoveredWord = null;
     });
 
     container.addEventListener('click', (e) => {
       const letter = e.target.closest('.artigos__letter[data-word]');
       if (!letter) return;
+
       const word = letter.dataset.word;
+      if (word === activeWord) return;
 
-      // Manter highlight permanente na palavra ativa
-      if (activeWord && activeWord !== word) {
-        highlightWord(container, activeWord, false);
-      }
+      // Remove estado ativo da palavra anterior
+      if (activeWord) setWordState(container, activeWord, 'none');
+
       activeWord = word;
-      highlightWord(container, word, true);
-
+      setWordState(container, word, 'active');
       showPreview(word);
     });
   }
 
-  function highlightWord(container, word, on) {
-    container.querySelectorAll(`[data-word="${word}"]`).forEach((el) => {
-      el.classList.toggle('artigos__letter--highlight', on);
-    });
-  }
-
+  /* ── Preview panel ───────────────────────────────────────── */
   function showPreview(word) {
     const artigo = ARTIGOS.find((a) => a.word === word);
     if (!artigo) return;
 
-    const empty = document.getElementById('artigosEmpty');
-    const card  = document.getElementById('artigosCard');
+    const empty   = document.getElementById('artigosEmpty');
+    const card    = document.getElementById('artigosCard');
     const preview = document.getElementById('artigosPreview');
 
     document.getElementById('artigosCardKeyword').textContent = artigo.word;
@@ -187,8 +208,8 @@
 
   /* ── Init ────────────────────────────────────────────────── */
   function init() {
-    const { grid, wordMap } = buildGrid();
-    render(grid, wordMap);
+    const data = buildGrid();
+    render(data);
   }
 
   if (document.readyState === 'loading') {
