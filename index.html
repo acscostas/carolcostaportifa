@@ -48,6 +48,7 @@
       <li><a href="#sobre" class="nav__link">Sobre</a></li>
       <li><a href="#work" class="nav__link">UX Cases</a></li>
       <li><a href="#art" class="nav__link">ART</a></li>
+      <li><a href="#artigos" class="nav__link">Artigos</a></li>
       <li><a href="#contato" class="nav__link">Contato</a></li>
     </ul>
     <span class="nav__year" aria-hidden="true">2026</span>
@@ -364,6 +365,34 @@
   </section>
 
   <!-- ══════════════════════════════════════════════════
+       ARTIGOS
+  ══════════════════════════════════════════════════ -->
+  <section class="artigos" id="artigos" aria-label="Artigos">
+
+    <aside class="artigos__section-label" aria-hidden="true">
+      <span class="label-vert">Artigos</span>
+    </aside>
+
+    <div class="artigos__puzzle">
+      <div class="artigos__grid" id="artigosGrid"></div>
+    </div>
+
+    <div class="artigos__preview" id="artigosPreview">
+      <div class="artigos__empty" id="artigosEmpty">
+        <p class="artigos__quote">O ato de escrever<br>é um ato de criar alma,<br>é alquimia</p>
+        <span class="artigos__hint">← encontre as palavras</span>
+      </div>
+      <div class="artigos__card" id="artigosCard" hidden>
+        <span class="artigos__card-keyword" id="artigosCardKeyword"></span>
+        <h3 class="artigos__card-title" id="artigosCardTitle"></h3>
+        <p class="artigos__card-teaser" id="artigosCardTeaser"></p>
+        <a class="artigos__card-cta" id="artigosCardCta" href="#" target="_blank" rel="noopener">ler artigo →</a>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ══════════════════════════════════════════════════
        CONTATO
   ══════════════════════════════════════════════════ -->
   <section class="contato" id="contato" aria-label="Contato">
@@ -417,6 +446,7 @@
   <!-- ── Scripts ──────────────────────────────────────── -->
   <script src="js/cursor.js"></script>
   <script src="js/timeline.js"></script>
+  <script src="js/artigos.js"></script>
 
 </body>
 </html>

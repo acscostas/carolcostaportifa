@@ -198,6 +198,18 @@ gsap.registerPlugin(ScrollTrigger);
     });
   }
 
+  // Reseta cores ao entrar na seção artigos (bg próprio via CSS)
+  ScrollTrigger.create({
+    trigger: '#artigos',
+    start: 'top 80%',
+    onEnter: () => {
+      document.body.removeAttribute('data-bg-dark');
+      document.body.style.backgroundColor = '';
+      if (bonequinha) bonequinha.style.backgroundColor = '';
+    },
+    onLeaveBack: () => resetColors(),
+  });
+
   // Reseta cores ao entrar na seção contato (que tem bg próprio)
   ScrollTrigger.create({
     trigger: '#contato',
