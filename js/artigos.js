@@ -111,10 +111,6 @@
         span.className = 'artigos__letter';
         span.textContent = grid[r][c];
 
-        // Rotação leve aleatória — efeito caótico
-        const rot = (Math.random() * 10 - 5).toFixed(1);
-        span.style.transform = `rotate(${rot}deg)`;
-
         if (wordMap[r][c]) {
           span.dataset.word    = wordMap[r][c];
           span.dataset.wordDir = dirMap[r][c];
