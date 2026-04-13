@@ -32,10 +32,9 @@
   const GRID_SIZE = 18;
   const LETTERS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
-  // Apenas horizontal e vertical — sem diagonal
+  // Apenas horizontal
   const DIRECTIONS = [
     { dr: 0, dc: 1, dir: 'h' },  // → direita
-    { dr: 1, dc: 0, dir: 'v' },  // ↓ baixo
   ];
 
   /* ── Construção do grid ──────────────────────────────────── */
