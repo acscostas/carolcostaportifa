@@ -653,6 +653,8 @@ body[data-bg-dark="true"] .nav__year {
 .case__scrapbook-inner {
   position: relative;
   width: clamp(180px, 22vw, 300px);
+  max-height: clamp(140px, 18vw, 230px);
+  overflow: hidden;
   transform: rotate(2deg);
   box-shadow: 0 8px 28px rgba(0, 0, 0, 0.12);
   background: var(--so-white);
@@ -667,9 +669,7 @@ body[data-bg-dark="true"] .nav__year {
 
 .case__scrapbook-inner img {
   width: 100%;
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
-  object-position: top;
+  height: auto;
   display: block;
   filter: grayscale(20%);
 }
