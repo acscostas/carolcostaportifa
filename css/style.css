@@ -790,6 +790,7 @@ body[data-bg-dark="true"] .nav__year {
   object-fit: cover;
   object-position: top;
   display: block;
+  filter: grayscale(100%);
 }
 
 .art__card:hover .art__card-img {
