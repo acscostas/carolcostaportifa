@@ -669,6 +669,7 @@ body[data-bg-dark="true"] .nav__year {
   width: 100%;
   aspect-ratio: 4 / 3;
   object-fit: cover;
+  object-position: top;
   display: block;
   filter: grayscale(20%);
 }
