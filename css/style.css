@@ -203,7 +203,6 @@ body[data-bg-dark="true"] .nav__year {
 }
 
 /* Textos do hero no fundo cherry */
-.hero .hero__logo-wrap  { color: var(--so-white); }
 .hero .hero__tagline    { color: var(--so-white); }
 .hero .hero__scroll span { color: var(--so-white); }
 .hero .hero__scroll-line { background: var(--so-white); }
@@ -218,32 +217,12 @@ body[data-bg-dark="true"] .nav__year {
   padding: 0 2rem;
 }
 
-/* Logo CaroL */
-.hero__logo-wrap {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  line-height: 1;
-  font-family: var(--font-title);
-  font-size: clamp(4rem, 14vw, 11rem);
-  color: var(--black);
-  gap: 0.04em;
-}
-
-.logo__text {
-  display: inline-block;
-}
-
-.logo__eye-wrap {
-  display: inline-flex;
-  align-items: center;
-  height: 0.62em;
-  flex-shrink: 0;
-}
-
-.logo__eye-svg {
-  height: 100%;
-  width: auto;
+/* Logo CaroL — imagem */
+.hero__logo-img {
+  width: clamp(280px, 48vw, 680px);
+  height: auto;
+  display: block;
+  user-select: none;
 }
 
 /* Tagline — toda Poppins, mesmo tamanho/cor/opacidade, bold nas palavras-chave */
@@ -1074,8 +1053,8 @@ body[data-bg-dark="true"] .nav__year {
 }
 
 @media (max-width: 480px) {
-  .hero__logo-wrap {
-    font-size: clamp(3rem, 18vw, 7rem);
+  .hero__logo-img {
+    width: clamp(220px, 80vw, 380px);
   }
 
   .hero__tagline {
